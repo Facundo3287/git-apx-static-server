@@ -60,7 +60,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" }  };
-        fetch('https://git-apx-static-server.onrender.com/verification', config)
+        fetch('http://localhost:8000/verification', config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.verificacion == false) {
@@ -80,7 +80,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('https://git-apx-static-server.onrender.com/newAccount', config)
+        fetch('http://localhost:8000/newAccount', config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.registro == true) {
@@ -96,7 +96,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('https://git-apx-static-server.onrender.com/newRoom', config)
+        fetch('http://localhost:8000/newRoom', config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.newRoom == true) {
@@ -117,7 +117,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('https://git-apx-static-server.onrender.com/saveRoom', config)
+        fetch('http://localhost:8000/saveRoom', config)
     },
 
     conectedRealtime(roomIdLong: string): void {
@@ -142,7 +142,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('https://git-apx-static-server.onrender.com/searchRoom', config)
+        fetch('http://localhost:8000/searchRoom', config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.busqueda == true) { 
@@ -162,7 +162,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('https://git-apx-static-server.onrender.com/newMessaje', config)
+        fetch('http://localhost:8000/newMessaje', config)
         .then( (aux) => { return aux.text() } )
         .then( (resultado) => { console.log(resultado) } )
         .catch( (err) => { console.log('error') } )
