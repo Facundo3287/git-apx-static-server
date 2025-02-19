@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "es5",                          // Especifica el estándar de ECMAScript al que se compilará el código.
+      "module": "commonjs",                     // Especifica el sistema de módulos que se utilizará.
+      "strict": true,                           // Habilita todas las comprobaciones estrictas.
+      "esModuleInterop": true,                  // Permite la interoperabilidad entre módulos ES y CommonJS.
+      "skipLibCheck": true,                     // Omite la verificación de tipos en archivos de declaración.
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true // Fuerza el uso consistente del nombre de archivo.
+    },
+    "include": [
+      "src/**/*"                                 // Incluye todos los archivos TypeScript en la carpeta src.
+    ],
+    "exclude": [
+      "node_modules",                           // Excluye la carpeta node_modules.
+      "./index.ts",
+      "./db.ts"
+    ]
+  }
+  
