@@ -60,7 +60,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" }  };
-        fetch('/verification', config)
+        fetch(`${process.env.RENDER_EXTERNAL_URL}/verification`, config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.verificacion == false) {
@@ -80,7 +80,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('/newAccount', config)
+        fetch(`${process.env.RENDER_EXTERNAL_URL}/newAccount`, config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.registro == true) {
@@ -96,7 +96,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('/newRoom', config)
+        fetch(`${process.env.RENDER_EXTERNAL_URL}/newRoom`, config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.newRoom == true) {
@@ -117,7 +117,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('/saveRoom', config)
+        fetch(`${process.env.RENDER_EXTERNAL_URL}/saveRoom`, config)
     },
 
     conectedRealtime(roomIdLong: string): void {
@@ -142,7 +142,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('/searchRoom', config)
+        fetch(`${process.env.RENDER_EXTERNAL_URL}/seachRoom`, config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.busqueda == true) { 
@@ -162,7 +162,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('/newMessaje', config)
+        fetch(`${process.env.RENDER_EXTERNAL_URL}/newMenssaje`, config)
         .then( (aux) => { return aux.text() } )
         .then( (resultado) => { console.log(resultado) } )
         .catch( (err) => { console.log('error') } )
