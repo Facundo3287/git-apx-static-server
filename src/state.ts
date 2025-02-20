@@ -60,7 +60,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" }  };
-        fetch('http://localhost:8000/verification', config)
+        fetch('/verification', config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.verificacion == false) {
@@ -80,7 +80,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('http://localhost:8000/newAccount', config)
+        fetch('/newAccount', config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.registro == true) {
@@ -96,7 +96,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('http://localhost:8000/newRoom', config)
+        fetch('/newRoom', config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.newRoom == true) {
@@ -117,7 +117,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('http://localhost:8000/saveRoom', config)
+        fetch('/saveRoom', config)
     },
 
     conectedRealtime(roomIdLong: string): void {
@@ -142,7 +142,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('http://localhost:8000/searchRoom', config)
+        fetch('/searchRoom', config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.busqueda == true) { 
@@ -162,7 +162,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch('http://localhost:8000/newMessaje', config)
+        fetch('/newMessaje', config)
         .then( (aux) => { return aux.text() } )
         .then( (resultado) => { console.log(resultado) } )
         .catch( (err) => { console.log('error') } )

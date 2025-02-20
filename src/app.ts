@@ -7,7 +7,7 @@ import { agregarFr } from './componentes/formRoom';
 import { agregarFch } from './componentes/formChat';
 
 function main () {
-    console.log('hola desde app.ts ======================> ', process.env);
+    console.log('hola desde app.ts ======================> ', process.env.RENDER_EXTERNAL_URL);
     agregarNav();
     agregarContenedor();
     agregarTitulo();
