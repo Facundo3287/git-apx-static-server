@@ -52,6 +52,7 @@ export let state: State = {
         this.data.nombre = nombre },
 
     verification(nombre: string, email: string): void {
+        let url = process.env.RENDER_EXTERNAL_URL + '/verification';
         this.setAccount(nombre, email);
         let body = { 
             nombre: nombre, 
@@ -60,7 +61,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" }  };
-        fetch(`${process.env.RENDER_EXTERNAL_URL}/verification`, config)
+        fetch(url, config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.verificacion == false) {
@@ -73,6 +74,7 @@ export let state: State = {
     },
 
     newAccount(): void {
+        let url = process.env.RENDER_EXTERNAL_URL + '/newAccount';
         let body = { 
             nombre: this.data.nombre, 
             email: this.data.email };
@@ -80,7 +82,7 @@ export let state: State = {
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch(`${process.env.RENDER_EXTERNAL_URL}/newAccount`, config)
+        fetch(url, config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.registro == true) {
@@ -91,12 +93,13 @@ export let state: State = {
      },
 
      newRoom(): void {
+        let url = process.env.RENDER_EXTERNAL_URL + '/newRoom';
         let body = { userId: this.data.idUser };
         let config = { 
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch(`${process.env.RENDER_EXTERNAL_URL}/newRoom`, config)
+        fetch(url, config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.newRoom == true) {
@@ -112,12 +115,13 @@ export let state: State = {
      },
 
     saveRoom(): void {
+        let url = process.env.RENDER_EXTERNAL_URL + '/saveRoom';
         let body = { roomIdLong: this.data.roomIdLong, roomIdShort: this.data.roomIdShort };
         let config = { 
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch(`${process.env.RENDER_EXTERNAL_URL}/saveRoom`, config)
+        fetch(url, config)
     },
 
     conectedRealtime(roomIdLong: string): void {
@@ -137,12 +141,13 @@ export let state: State = {
     },
 
     searchRoom(roomIdShort: string): void {
+        let url = process.env.RENDER_EXTERNAL_URL + '/searchRoom';
         let body = { roomIdShort: roomIdShort };
         let config = { 
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch(`${process.env.RENDER_EXTERNAL_URL}/seachRoom`, config)
+        fetch(url, config)
         .then( (response) => { return response.json() } )
         .then( (data) => { 
             if (data.busqueda == true) { 
@@ -156,13 +161,13 @@ export let state: State = {
     },
 
     newMessaje(menssaje: string): void {
-        console.log(this.data);
+        let url = process.env.RENDER_EXTERNAL_URL + '/newMenssaje';
         let body = { roomIdLong: this.data.roomIdLong , content: menssaje };
         let config = { 
             method: 'POST', 
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json; charset=UTF-8" } };
-        fetch(`${process.env.RENDER_EXTERNAL_URL}/newMenssaje`, config)
+        fetch(url, config)
         .then( (aux) => { return aux.text() } )
         .then( (resultado) => { console.log(resultado) } )
         .catch( (err) => { console.log('error') } )

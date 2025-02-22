@@ -18,7 +18,7 @@ let app = express();
 app.use(cors());
 app.use( express.json() );
 app.use(express.static('dist'));
-let port = process.env.PORT || 4000;
+let port = process.env.PORT;
 
 app.post('/verification', (req, res) => {
     let query = firestore.collection('usuarios').where('nombre', '==', req.body.nombre);
@@ -93,4 +93,4 @@ app.get('*', (req, res) => {
     res.sendFile(__dirname + '/dist/index.html')
 });
 
-app.listen( port, () => { console.log('server encendido...') } )
+app.listen(port, () => { console.log('server encendido...') } )
